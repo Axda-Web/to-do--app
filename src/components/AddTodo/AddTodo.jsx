@@ -23,14 +23,15 @@ const AddTodo = ({todos, addTodo}) => {
     const handleBtnClick = e => {
         e.preventDefault()
         addTodo({
-            id: generateRandomId(),
-            title: text,
-            done: false
-        })
+                id: generateRandomId(),
+                title: text,
+                done: false
+            })
         setText('')
     }
 
     return (
+        <>
         <div className="input-group mb-3">
             <input  type="text"
                     className="form-control"
@@ -42,8 +43,11 @@ const AddTodo = ({todos, addTodo}) => {
             <button className="btn btn-outline-secondary"
                     type="button"
                     id="button-addon2"
+                    disabled={text.length > 2 ? false : true}
                     onClick={handleBtnClick}>Add</button>
         </div>
+        { text.length < 3 && text.length !== 0 && <div className="input-feedback text-start text-danger mb-5">The name must be 3 characters at least</div>}
+    </>
     )
 }
 

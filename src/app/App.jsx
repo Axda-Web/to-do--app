@@ -24,6 +24,10 @@ const  App = () => {
     })
   })
 
+  const deleteTodo = id => {
+    setTodos( prev => prev.filter( todo => todo.id !== id))
+  }
+
   return (
     <div className="container text-center mt-5">
       <h1>Todo List</h1>
@@ -31,7 +35,9 @@ const  App = () => {
                 addTodo={addTodo}
               />
       <TodoList todos={todos} 
-                setToDone={setToDone}/>
+                setToDone={setToDone}
+                deleteTodo={deleteTodo}
+                />
     </div>
   );
 }

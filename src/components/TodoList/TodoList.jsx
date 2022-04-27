@@ -1,17 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 
 import './TodoList.css'
 
 import TodoItem from "../TodoItem/TodoItem";
 
-const TodoList = () => {
+const TodoList = ({todos, setToDone}) => {
+
+    const displayTodos = todos.map( todo => <TodoItem   key={todo.id}
+                                                        title={todo.title}
+                                                        done={todo.done}
+                                                        id={todo.id}
+                                                        setToDone={setToDone}
+                                                    />)
 
     return (
         <div className="list-group text-start">
-            <TodoItem />
-            <TodoItem />
-            <TodoItem />
-            <TodoItem />
+            {displayTodos}
         </div>
     )
 }

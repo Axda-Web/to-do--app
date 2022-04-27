@@ -1,16 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 
 import './TodoItem.css'
 
-const TodoItem = () => {
+const TodoItem = ({title, id, done, setToDone}) => {
+
+    const handleTodoClick = e => {
+        console.log('clicked!')
+        setToDone(id)
+    }
 
     return (
-        <div>
-            <label className="list-group-item">
-            <input className="form-check-input me-1" type="checkbox" value="" />
-            Fifth checkbox
-            </label>
-        </div>
+        
+            <li className={`list-group-item ${done ? 'list-group-item-success done' : ''} d-flex justify-content-between align-items-center`}>
+                <div className="heading">{title} </div>
+                <div className="icons">
+                    <i className={`bi ${done ? 'bi-check-square-fill' : 'bi-check-square'}`} onClick={handleTodoClick}></i>
+                    <i className="bi bi-pencil-square"></i>
+                    <i className="bi bi-trash3"></i>
+                </div>
+                
+            </li>
+        
     )
 }
 

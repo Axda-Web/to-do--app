@@ -1,0 +1,13 @@
+.done {
+    text-decoration: line-through;
+}
+
+.heading {
+    font-size: 1.5rem;
+}
+
+.bi {
+    font-size: 1.5rem;
+    padding: .5em;
+    cursor: pointer;
+}

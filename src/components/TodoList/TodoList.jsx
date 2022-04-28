@@ -4,14 +4,15 @@ import './TodoList.css'
 
 import TodoItem from "../TodoItem/TodoItem";
 
-const TodoList = ({todos, setToDone, deleteTodo}) => {
+const TodoList = ({todos, completeTodo, deleteTodo, addArchiveTodo}) => {
 
     const displayTodos = todos.map( todo => <TodoItem   key={todo.id}
                                                         title={todo.title}
                                                         done={todo.done}
                                                         id={todo.id}
-                                                        setToDone={setToDone}
+                                                        completeTodo={completeTodo}
                                                         deleteTodo={deleteTodo}
+                                                        addArchiveTodo={addArchiveTodo}
                                                     />)
 
     return (

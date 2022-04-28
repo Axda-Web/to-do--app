@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 
 import './TodoItem.css'
 
-const TodoItem = ({title, id, done, setToDone, deleteTodo}) => {
+const TodoItem = ({title, id, done, completeTodo, deleteTodo, addArchiveTodo}) => {
 
 
     const handleValidTodoClick = e => {
-        setToDone(id)
+        completeTodo(id)
+    }
+
+    const handleArchiveTodoClick = e => {
+        deleteTodo(id)
+        addArchiveTodo(id)
     }
 
     const handleDeleteTodoClick = e => {
@@ -19,6 +24,7 @@ const TodoItem = ({title, id, done, setToDone, deleteTodo}) => {
                 <div className="heading">{title}</div>
                 <div className="icons">
                     <i className={`bi ${done ? 'bi-check-square-fill' : 'bi-check-square'}`} onClick={handleValidTodoClick}></i>
+                    <i className="bi bi-archive" onClick={handleArchiveTodoClick}></i>
                     <i className="bi bi-trash3" onClick={handleDeleteTodoClick}></i>
                 </div>
                 

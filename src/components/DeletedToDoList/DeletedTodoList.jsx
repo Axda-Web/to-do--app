@@ -15,7 +15,7 @@ const DeletedTodoList = ({archiveTodos, restoreTodo, deleteRestoredTodo}) => {
                                                                 />)
 
     return (
-        <div className="list-group text-start">
+        <div className="list-group text-start mt-3">
             {displayTodos}
         </div>
     )

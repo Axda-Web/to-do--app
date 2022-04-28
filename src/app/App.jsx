@@ -66,11 +66,11 @@ const  App = () => {
                 addArchiveTodo={addArchiveTodo}
                 completeTodo={completeTodo}
                 />
-      { archiveTodos.length > 0 && <button className="btn text-decoration-underline text-start mt-3" onClick={showArchTodos}>Show archive items</button> }
-      <DeletedTodoList  archiveTodos={archiveTodos}
+      { archiveTodos.length > 0 && <button className="btn text-decoration-underline text-start mt-5" onClick={showArchTodos}>Show archive items</button> }
+      { showArchiveTodos && <DeletedTodoList  archiveTodos={archiveTodos}
                         restoreTodo={restoreTodo}
                         deleteRestoredTodo={deleteRestoredTodo}
-                        />
+                        />}
     </div>
   );
 }

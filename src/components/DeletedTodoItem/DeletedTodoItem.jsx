@@ -2,7 +2,7 @@ import React from "react";
 
 import './DeletedTodoItem.css'
 
-const DeletedTodoItem = ({title, id, restoreTodo, deleteRestoredTodo}) => {
+const DeletedTodoItem = ({title, id, done, restoreTodo, deleteRestoredTodo}) => {
 
 
     const handleRestoreTodoClick = e => {
@@ -15,8 +15,8 @@ const DeletedTodoItem = ({title, id, restoreTodo, deleteRestoredTodo}) => {
 
     return (
         
-            <li className={`list-group-item list-group-item-danger d-flex justify-content-between align-items-center`}>
-                <div className="heading">{title}</div>
+            <li className={`list-group-item ${done ? 'done' : ''} list-group-item-warning d-flex justify-content-between align-items-center`}>
+                <div className="heading ">{title}</div>
                 <div className="icons">
                     <i className="bi bi-upload" onClick={handleRestoreTodoClick}></i>
                     <i className="bi bi-trash3-fill" onClick={handleDeleteTodoArchiveClick}></i>

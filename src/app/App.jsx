@@ -56,17 +56,19 @@ const  App = () => {
   }
 
   return (
-    <div className="container text-center mt-5">
-      <h1>Todo List</h1>
+    <div className="container-sm text-center mt-5">
+      <h1 className='mb-5'>Todo List</h1>
       <AddTodo  todos={todos}
                 addTodo={addTodo}
               />
-      <TodoList todos={todos}
-                deleteTodo={deleteTodo}
-                addArchiveTodo={addArchiveTodo}
-                completeTodo={completeTodo}
-                />
-      { archiveTodos.length > 0 && <button className="btn text-decoration-underline text-start mt-5" onClick={showArchTodos}>Show archive items</button> }
+      
+      { !todos.length ? <p className='empty-message'>No todos...</p> : <TodoList  todos={todos}
+                                                        deleteTodo={deleteTodo}
+                                                        addArchiveTodo={addArchiveTodo}
+                                                        completeTodo={completeTodo}
+                                                        />}
+
+      { archiveTodos.length > 0 && <button className="btn text-decoration-underline text-start mt-5" onClick={showArchTodos}>{showArchiveTodos ? 'Mask' : 'Show'} archive items</button> }
       { showArchiveTodos && <DeletedTodoList  archiveTodos={archiveTodos}
                         restoreTodo={restoreTodo}
                         deleteRestoredTodo={deleteRestoredTodo}

@@ -2,7 +2,7 @@ import React from "react";
 
 import './ArchivedTodoList.css'
 
-import ArchivedTodoItem from "../ArchivedTodoItem/ArchivedTodoItem";
+import ArchivedTodoItem from "../../components/ArchivedTodoItem/ArchivedTodoItem";
 
 const ArchivedTodoList = ({archiveTodos, restoreTodo, deleteRestoredTodo}) => {
 

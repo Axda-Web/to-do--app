@@ -3,7 +3,7 @@ import './App.css';
 
 import AddTodo from '../components/AddTodo/AddTodo';
 import TodoList from '../components/TodoList/TodoList';
-import DeletedTodoList from '../components/DeletedToDoList/DeletedTodoList';
+import ArchivedTodoList from '../components/ArchivedToDoList/ArchivedTodoList';
 
 const  App = () => {
 
@@ -57,7 +57,8 @@ const  App = () => {
 
   return (
     <div className="container-sm text-center mt-5">
-      <h1 className='mb-5'>Todo List</h1>
+      <h1 className='mb-5 logo'>Todo List <i className="bi bi-pencil-fill pen"></i></h1>
+
       <AddTodo  todos={todos}
                 addTodo={addTodo}
               />
@@ -68,8 +69,8 @@ const  App = () => {
                                                         completeTodo={completeTodo}
                                                         />}
 
-      { archiveTodos.length > 0 && <button className="btn text-decoration-underline text-start mt-5" onClick={showArchTodos}>{showArchiveTodos ? 'Mask' : 'Show'} archive items</button> }
-      { showArchiveTodos && <DeletedTodoList  archiveTodos={archiveTodos}
+      { archiveTodos.length > 0 && <button className="btn text-decoration-underline text-start text-primary mt-5" onClick={showArchTodos}>{showArchiveTodos ? 'Mask' : 'Show'} archive items</button> }
+      { showArchiveTodos && <ArchivedTodoList  archiveTodos={archiveTodos}
                         restoreTodo={restoreTodo}
                         deleteRestoredTodo={deleteRestoredTodo}
                         />}

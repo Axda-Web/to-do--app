@@ -1,8 +1,8 @@
 import React from "react";
 
-import './DeletedTodoItem.css'
+import './ArchivedTodoItem.css'
 
-const DeletedTodoItem = ({title, id, done, restoreTodo, deleteRestoredTodo}) => {
+const ArchivedTodoItem = ({title, id, done, restoreTodo, deleteRestoredTodo}) => {
 
 
     const handleRestoreTodoClick = e => {
@@ -27,4 +27,4 @@ const DeletedTodoItem = ({title, id, done, restoreTodo, deleteRestoredTodo}) => 
     )
 }
 
-export default DeletedTodoItem
+export default ArchivedTodoItem

@@ -40,7 +40,7 @@ const AddTodo = ({todos, addTodo}) => {
                     value={text}
                     onChange={handleInputChange}
                 />
-            <button className="btn btn-outline-secondary"
+            <button className="btn btn-primary"
                     type="button"
                     id="button-addon2"
                     disabled={text.length > 2 ? false : true}

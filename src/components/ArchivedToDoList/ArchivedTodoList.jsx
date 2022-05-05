@@ -1,12 +1,12 @@
 import React from "react";
 
-import './DeletedTodoList.css'
+import './ArchivedTodoList.css'
 
-import DeletedTodoItem from "../DeletedTodoItem/DeletedTodoItem";
+import ArchivedTodoItem from "../ArchivedTodoItem/ArchivedTodoItem";
 
-const DeletedTodoList = ({archiveTodos, restoreTodo, deleteRestoredTodo}) => {
+const ArchivedTodoList = ({archiveTodos, restoreTodo, deleteRestoredTodo}) => {
 
-    const displayTodos = archiveTodos.map( todo => <DeletedTodoItem     key={todo.id + 1}
+    const displayTodos = archiveTodos.map( todo => <ArchivedTodoItem     key={todo.id + 1}
                                                                         title={todo.title}
                                                                         done={todo.done}
                                                                         id={todo.id}
@@ -21,4 +21,4 @@ const DeletedTodoList = ({archiveTodos, restoreTodo, deleteRestoredTodo}) => {
     )
 }
 
-export default DeletedTodoList
+export default ArchivedTodoList

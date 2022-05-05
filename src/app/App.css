@@ -1,5 +1,10 @@
+.logo {
+  font-family: 'Gochi Hand', cursive;
+  font-size: 2.5rem;
+}
+
 .empty-message {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .container-sm {

@@ -2,78 +2,25 @@ import React, { useState } from 'react';
 import './App.css';
 
 import AddTodo from '../components/AddTodo/AddTodo';
-import TodoList from '../components/TodoList/TodoList';
-import ArchivedTodoList from '../components/ArchivedToDoList/ArchivedTodoList';
+import TodoList from '../features/TodoList/TodoList'
+import ArchivedTodoList from '../features/ArchivedTodoList/ArchivedTodoList'
 
-const  App = () => {
+const  App = ({state, dispatch}) => {
 
-  const [todos, setTodos] = useState([])
-  const [archiveTodos, setArchiveTodos] = useState([])
   const [showArchiveTodos, setShowArchiveTodos] = useState(false)
 
-  //Todo items
-  const addTodo = (todo) => {
-    setTodos( prev => ([
-      ...prev,
-      todo
-    ]))
-  }
-
-  const completeTodo = id => setTodos( prev => {
-    return prev.map( todo => {
-      if(todo.id === id){
-        return {...todo, done: !todo.done}
-      }
-      return todo
-    })
-  })
-
-  const deleteTodo = id => {
-    setTodos( prev => prev.filter( todo => todo.id !== id))
-  }
-  
-
-
-  //Archive todo items
-  const addArchiveTodo = id => {
-    const delItem = todos.filter( todo => todo.id === id)
-    setArchiveTodos( prev => ([
-      ...delItem,
-      ...prev
-    ]))
-  }
-
   const showArchTodos = () => setShowArchiveTodos(!showArchiveTodos)
-
-  const restoreTodo = id => {
-    const restoredItem = archiveTodos.filter( todo => todo.id === id)
-    addTodo(...restoredItem)
-    deleteRestoredTodo(id)
-  }
-
-  const deleteRestoredTodo = id => {
-    setArchiveTodos( prev => prev.filter( todo => todo.id !== id))
-  }
 
   return (
     <div className="container-sm text-center mt-5">
       <h1 className='mb-5 logo'>Todo List <i className="bi bi-pencil-fill pen"></i></h1>
 
-      <AddTodo  todos={todos}
-                addTodo={addTodo}
-              />
+      <AddTodo state={state} dispatch={dispatch} />
       
-      { !todos.length ? <p className='empty-message'>No todos...</p> : <TodoList  todos={todos}
-                                                        deleteTodo={deleteTodo}
-                                                        addArchiveTodo={addArchiveTodo}
-                                                        completeTodo={completeTodo}
-                                                        />}
+      { !state.todos.length ? <p className='empty-message'>No todos...</p> : <TodoList state={state} dispatch={dispatch} />}
 
-      { archiveTodos.length > 0 && <button className="btn text-decoration-underline text-start text-primary mt-5" onClick={showArchTodos}>{showArchiveTodos ? 'Mask' : 'Show'} archive items</button> }
-      { showArchiveTodos && <ArchivedTodoList  archiveTodos={archiveTodos}
-                        restoreTodo={restoreTodo}
-                        deleteRestoredTodo={deleteRestoredTodo}
-                        />}
+      { state.archivedTodos.length > 0 && <button className="btn text-decoration-underline text-start text-primary mt-5" onClick={showArchTodos}>{showArchiveTodos ? 'Mask' : 'Show'} archive items</button> }
+      { showArchiveTodos && <ArchivedTodoList  state={state} dispatch={dispatch} />}
     </div>
   );
 }

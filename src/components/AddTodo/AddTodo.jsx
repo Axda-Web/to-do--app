@@ -2,7 +2,9 @@ import React, { useState } from "react";
 
 import './AddTodo.css'
 
-const AddTodo = ({todos, addTodo}) => {
+import { addTodoActionCreator } from "../../features/TodoList/todoListSlice";
+
+const AddTodo = ({state, dispatch}) => {
 
     const [text, setText] = useState('')
 
@@ -10,7 +12,7 @@ const AddTodo = ({todos, addTodo}) => {
         let randomId = Math.floor(Math.random() * 100)
 
         // eslint-disable-next-line no-loop-func
-        while (todos.find( todo => todo.id === randomId)){
+        while (state.todos.find( todo => todo.id === randomId)){
             randomId = Math.floor(Math.random() * 100)
         }
         return randomId
@@ -22,11 +24,11 @@ const AddTodo = ({todos, addTodo}) => {
 
     const handleBtnClick = e => {
         e.preventDefault()
-        addTodo({
-                id: generateRandomId(),
-                title: text,
-                done: false
-            })
+        dispatch(addTodoActionCreator({
+            id: generateRandomId(),
+            title: text,
+            done: false
+        }))
         setText('')
     }
 

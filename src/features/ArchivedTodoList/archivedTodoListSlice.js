@@ -3,23 +3,17 @@ const initialState = []
 
 
 //Action creators
-export const addArchiveTodoActionCreator = todo => {
+export const addArchivedTodoActionCreator = todo => {
     return {
-        type: 'AddArchiveTodo',
+        type: 'addArchivedTodo',
         payload: todo
     }
 }
 
-/* const restoreArchiveTodoActionCreator = id => {
-    return {
-        type: 'restoreArchiveTodo',
-        payload: id
-    }
-} */
 
-export const deleteArchiveTodoActionCreator = id => {
+export const deleteArchivedTodoActionCreator = id => {
     return {
-        type: 'deleteArchiveTodo',
+        type: 'deleteArchivedTodo',
         payload: id
     }
 }
@@ -27,11 +21,11 @@ export const deleteArchiveTodoActionCreator = id => {
 
 //Slice reducer
 export const archivedTodosSliceReducer = (state = initialState, action) => {
+
     switch(action.type) {
-        case 'addArchiveTodo':
+        case 'addArchivedTodo':
             return [...state, action.payload]
-        /* case 'restoreArchiveTodo': */
-        case 'deleteArchiveTodo':
+        case 'deleteArchivedTodo':
             return state.filter( todo => todo.id !== action.payload)
         default:
             return state

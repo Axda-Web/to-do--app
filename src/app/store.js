@@ -2,7 +2,7 @@ import { createStore, combineReducers } from 'redux'
 
 
 import { todosSliceReducer } from '../features/TodoList/todoListSlice'
-import { archivedTodosSliceReducer } from '../features/ArchivedTodoList/ArchivedTodoList'
+import { archivedTodosSliceReducer } from '../features/ArchivedTodoList/archivedTodoListSlice'
 
 const rootReducer = combineReducers({
     todos: todosSliceReducer,

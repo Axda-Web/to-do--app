@@ -1,16 +1,21 @@
 import React from "react";
 
+import { deleteArchivedTodoActionCreator } from '../../features/ArchivedTodoList/archivedTodoListSlice'
+import { addTodoActionCreator } from "../../features/TodoList/todoListSlice";
+
 import './ArchivedTodoItem.css'
 
-const ArchivedTodoItem = ({title, id, done, restoreTodo, deleteRestoredTodo}) => {
+const ArchivedTodoItem = ({title, id, done, dispatch, state}) => {
 
 
     const handleRestoreTodoClick = e => {
-        restoreTodo(id)
+        const restoredTodo = state.archivedTodos.find( todo => todo.id === id)
+        dispatch(addTodoActionCreator(restoredTodo))
+        dispatch(deleteArchivedTodoActionCreator(id))
     }
 
     const handleDeleteTodoArchiveClick = e => {
-        deleteRestoredTodo(id)
+        dispatch(deleteArchivedTodoActionCreator(id))
     }
 
     return (

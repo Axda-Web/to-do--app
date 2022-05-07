@@ -1,11 +1,13 @@
 import React from "react";
-
+import { useSelector } from "react-redux";
 import './ArchivedTodoList.css'
 
+//Components
 import ArchivedTodoItem from "../../components/ArchivedTodoItem/ArchivedTodoItem";
 
-import { useSelector } from "react-redux";
+//Selectors
 import { selectArchivedTodos } from "./archivedTodoListSlice";
+
 
 const ArchivedTodoList = () => {
 

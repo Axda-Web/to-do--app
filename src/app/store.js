@@ -1,12 +1,15 @@
-import { createStore, combineReducers } from 'redux'
+import { configureStore } from '@reduxjs/toolkit'
+
+//Slice reducers
+import todosSliceReducer from '../features/TodoList/todoListSlice'
+import archivedTodosSliceReducer from '../features/ArchivedTodoList/archivedTodoListSlice'
 
 
-import { todosSliceReducer } from '../features/TodoList/todoListSlice'
-import { archivedTodosSliceReducer } from '../features/ArchivedTodoList/archivedTodoListSlice'
-
-const rootReducer = combineReducers({
-    todos: todosSliceReducer,
-    archivedTodos: archivedTodosSliceReducer
+const store = configureStore({
+    reducer: {
+        todos: todosSliceReducer,
+        archivedTodos: archivedTodosSliceReducer
+    }
 })
 
-export const store = createStore(rootReducer)
+export default store

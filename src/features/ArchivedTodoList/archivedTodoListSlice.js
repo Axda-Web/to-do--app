@@ -1,36 +1,24 @@
-//Initial State
-const initialState = []
-
-
-//Action creators
-export const addArchivedTodoActionCreator = todo => {
-    return {
-        type: 'addArchivedTodo',
-        payload: todo
-    }
-}
-
-
-export const deleteArchivedTodoActionCreator = id => {
-    return {
-        type: 'deleteArchivedTodo',
-        payload: id
-    }
-}
+import { createSlice } from "@reduxjs/toolkit"
 
 
 //Slice reducer
-export const archivedTodosSliceReducer = (state = initialState, action) => {
-
-    switch(action.type) {
-        case 'addArchivedTodo':
+export const archivedTodosSliceReducer = createSlice({
+    name: 'archivedTodos',
+    initialState: [],
+    reducers: {
+        addArchivedTodo: (state, action) => {
             return [...state, action.payload]
-        case 'deleteArchivedTodo':
+        },
+
+        deleteArchivedTodo: (state, action) => {
             return state.filter( todo => todo.id !== action.payload)
-        default:
-            return state
+        }
     }
-}
+})
+
+
+export const { addArchivedTodo, deleteArchivedTodo } = archivedTodosSliceReducer.actions
+export default archivedTodosSliceReducer.reducer
 
 
 //Selectors

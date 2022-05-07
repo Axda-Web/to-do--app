@@ -1,11 +1,13 @@
 import React from "react";
-
+import { useSelector } from "react-redux";
 import './TodoList.css'
 
+//Components
 import TodoItem from '../../components/TodoItem/TodoItem'
 
-import { useSelector } from "react-redux";
+//Selectors
 import { selectTodos } from "./todoListSlice";
+
 
 const TodoList = () => {
 

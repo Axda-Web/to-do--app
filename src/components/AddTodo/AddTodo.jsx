@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-
 import './AddTodo.css'
 
-import { addTodoActionCreator } from "../../features/TodoList/todoListSlice";
+//Action creators
+import { addTodo } from "../../features/TodoList/todoListSlice";
 
+//Selectors
 import { useSelector, useDispatch } from "react-redux";
 import { selectTodos } from "../../features/TodoList/todoListSlice";
+
 
 const AddTodo = () => {
 
@@ -30,7 +32,7 @@ const AddTodo = () => {
 
     const handleBtnClick = e => {
         e.preventDefault()
-        dispatch(addTodoActionCreator({
+        dispatch(addTodo({
             id: generateRandomId(),
             title: text,
             done: false

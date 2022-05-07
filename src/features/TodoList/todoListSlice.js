@@ -1,39 +1,20 @@
-
-//Initial State
-const initialState = []
-
-
-//Action creators
-export const addTodoActionCreator = todo => {
-    return {
-        type: 'addTodo',
-        payload: todo
-    }
-}
-
-export const deleteTodoActionCreator = id => {
-    return {
-        type: 'deleteTodo',
-        payload: id
-    }
-}
-
-export const setTodoToDoneActionCreator = id => {
-    return {
-        type: 'setTodoToDone',
-        payload: id
-    }
-}
+import { createSlice } from "@reduxjs/toolkit"
 
 
 //Slice reducer
-export const todosSliceReducer = (state = initialState, action) => {
-    switch(action.type) {
-        case 'addTodo':
+export const todosSliceReducer = createSlice({
+    name: 'todos',
+    initialState: [],
+    reducers: {
+        addTodo: (state, action) => {
             return [...state, action.payload]
-        case 'deleteTodo':
+        },
+
+        deleteTodo: (state, action) => {
             return state.filter( todo => todo.id !== action.payload)
-        case 'setTodoToDone':
+        },
+
+        setToDone: (state, action) => {
             return state.map( todo => {
                 if(todo.id === action.payload) {
                     return {...todo,
@@ -42,10 +23,13 @@ export const todosSliceReducer = (state = initialState, action) => {
                 }
                 return todo
             })
-        default:
-            return state
+        }
     }
-}
+})
+
+
+export const { addTodo, deleteTodo, setToDone } = todosSliceReducer.actions
+export default todosSliceReducer.reducer
 
 
 //Selectors

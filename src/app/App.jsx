@@ -5,7 +5,15 @@ import AddTodo from '../components/AddTodo/AddTodo';
 import TodoList from '../features/TodoList/TodoList'
 import ArchivedTodoList from '../features/ArchivedTodoList/ArchivedTodoList'
 
-const  App = ({state, dispatch}) => {
+import { useSelector } from 'react-redux';
+
+import { selectArchivedTodos } from '../features/ArchivedTodoList/archivedTodoListSlice';
+import { selectTodos } from '../features/TodoList/todoListSlice';
+
+const  App = () => {
+
+  const todos = useSelector(selectTodos)
+  const archivedTodos = useSelector(selectArchivedTodos)
 
   const [showArchiveTodos, setShowArchiveTodos] = useState(false)
 
@@ -15,12 +23,12 @@ const  App = ({state, dispatch}) => {
     <div className="container-sm text-center mt-5">
       <h1 className='mb-5 logo'>Todo List <i className="bi bi-pencil-fill pen"></i></h1>
 
-      <AddTodo state={state} dispatch={dispatch} />
+      <AddTodo />
       
-      { !state.todos.length ? <p className='empty-message'>No todos...</p> : <TodoList state={state} dispatch={dispatch} />}
+      { !todos.length ? <p className='empty-message'>No todos...</p> : <TodoList />}
 
-      { state.archivedTodos.length > 0 && <button className="btn text-decoration-underline text-start text-primary mt-5" onClick={showArchTodos}>{showArchiveTodos ? 'Mask' : 'Show'} archive items</button> }
-      { showArchiveTodos && <ArchivedTodoList  state={state} dispatch={dispatch} />}
+      { archivedTodos.length > 0 && <button className="btn text-decoration-underline text-start text-primary mt-5" onClick={showArchTodos}>{showArchiveTodos ? 'Mask' : 'Show'} archive items</button> }
+      { showArchiveTodos && <ArchivedTodoList />}
     </div>
   );
 }

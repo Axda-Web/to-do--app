@@ -5,7 +5,14 @@ import './TodoItem.css'
 import { setTodoToDoneActionCreator, deleteTodoActionCreator } from "../../features/TodoList/todoListSlice";
 import { addArchivedTodoActionCreator } from "../../features/ArchivedTodoList/archivedTodoListSlice";
 
-const TodoItem = ({title, id, done, state, dispatch}) => {
+import { useSelector, useDispatch } from "react-redux";
+import { selectTodos } from "../../features/TodoList/todoListSlice";
+
+
+const TodoItem = ({title, id, done}) => {
+
+    const todos = useSelector(selectTodos)
+    const dispatch = useDispatch()
 
 
     const handleValidTodoClick = e => {
@@ -13,7 +20,7 @@ const TodoItem = ({title, id, done, state, dispatch}) => {
     }
 
     const handleArchiveTodoClick = e => {
-        const archivedItem = state.todos.find( todo => todo.id === id)
+        const archivedItem = todos.find( todo => todo.id === id)
         dispatch(addArchivedTodoActionCreator(archivedItem))
         dispatch(deleteTodoActionCreator(id))
     }

@@ -3,13 +3,18 @@ import React from "react";
 import { deleteArchivedTodoActionCreator } from '../../features/ArchivedTodoList/archivedTodoListSlice'
 import { addTodoActionCreator } from "../../features/TodoList/todoListSlice";
 
+import { useSelector, useDispatch } from "react-redux";
+import { selectArchivedTodos } from "../../features/ArchivedTodoList/archivedTodoListSlice";
+
 import './ArchivedTodoItem.css'
 
-const ArchivedTodoItem = ({title, id, done, dispatch, state}) => {
+const ArchivedTodoItem = ({title, id, done}) => {
 
+    const archivedTodos = useSelector(selectArchivedTodos)
+    const dispatch = useDispatch()
 
     const handleRestoreTodoClick = e => {
-        const restoredTodo = state.archivedTodos.find( todo => todo.id === id)
+        const restoredTodo = archivedTodos.find( todo => todo.id === id)
         dispatch(addTodoActionCreator(restoredTodo))
         dispatch(deleteArchivedTodoActionCreator(id))
     }

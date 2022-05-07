@@ -31,3 +31,7 @@ export const archivedTodosSliceReducer = (state = initialState, action) => {
             return state
     }
 }
+
+
+//Selectors
+export const selectArchivedTodos = state => state.archivedTodos

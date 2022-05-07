@@ -4,14 +4,17 @@ import './TodoList.css'
 
 import TodoItem from '../../components/TodoItem/TodoItem'
 
-const TodoList = ({state, dispatch}) => {
+import { useSelector } from "react-redux";
+import { selectTodos } from "./todoListSlice";
 
-    const displayTodos = state.todos.map( todo => <TodoItem     key={todo.id}
-                                                                title={todo.title}
-                                                                done={todo.done}
-                                                                id={todo.id}
-                                                                dispatch={dispatch}
-                                                                state={state}
+const TodoList = () => {
+
+    const todos = useSelector(selectTodos)
+
+    const displayTodos = todos.map( todo => <TodoItem   key={todo.id}
+                                                        title={todo.title}
+                                                        done={todo.done}
+                                                        id={todo.id}
                                                     />)
 
     return (

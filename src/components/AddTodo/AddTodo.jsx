@@ -4,7 +4,13 @@ import './AddTodo.css'
 
 import { addTodoActionCreator } from "../../features/TodoList/todoListSlice";
 
-const AddTodo = ({state, dispatch}) => {
+import { useSelector, useDispatch } from "react-redux";
+import { selectTodos } from "../../features/TodoList/todoListSlice";
+
+const AddTodo = () => {
+
+    const todos = useSelector(selectTodos)
+    const dispatch = useDispatch()
 
     const [text, setText] = useState('')
 
@@ -12,7 +18,7 @@ const AddTodo = ({state, dispatch}) => {
         let randomId = Math.floor(Math.random() * 100)
 
         // eslint-disable-next-line no-loop-func
-        while (state.todos.find( todo => todo.id === randomId)){
+        while (todos.find( todo => todo.id === randomId)){
             randomId = Math.floor(Math.random() * 100)
         }
         return randomId

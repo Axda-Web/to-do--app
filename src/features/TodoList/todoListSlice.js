@@ -46,3 +46,8 @@ export const todosSliceReducer = (state = initialState, action) => {
             return state
     }
 }
+
+
+//Selectors
+
+export const selectTodos = state => state.todos

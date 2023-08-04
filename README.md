@@ -54,4 +54,4 @@ To get started with the Todo List project, follow the steps below:
    npm start
    ```
 
-A deployed version of the SB Assessment project is available on Vercel at [Todo-list](https://to-do-8of3pzssm-axda-web.vercel.app/).
+A deployed version of the Todo List project is available on Vercel at [Todo-list](https://to-do-8of3pzssm-axda-web.vercel.app/).

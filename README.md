@@ -9,7 +9,8 @@
 
 ## Description
 
-ToDo List is a project aimed at building a 'reminder' application. It offers the following functionalities: add, complete, delete, archive and restore tasks. The State was first managed via React and then migrated to Redux.  
+ToDo List is a project aimed at building a 'reminder' application. It offers the following functionalities: add, complete, delete, archive and restore tasks. The State was first managed via React and then migrated to Redux.   
+
 This project explores various concepts and features including:
 
 - React State

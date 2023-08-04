@@ -2,7 +2,9 @@
 
 [![React.js](https://img.shields.io/badge/React.js-18.0.0-61DAFB?logo=react&logoColor=white&style=flat-square)](https://reactjs.org/)
 [![Redux](https://img.shields.io/badge/Redux-4.2.0-764ABC?logo=redux&logoColor=white&style=flat-square)](https://redux.js.org/)
-[![Bootstrap](https://img.shields.io/badge/Bootstrap-5.1.3-7952B3?logo=bootstrap&logoColor=white&style=flat-square)](https://getbootstrap.com/)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-5.1.3-7952B3?logo=bootstrap&logoColor=white&style=flat-square)](https://getbootstrap.com/)   
+
+![screenshot](/screenshot.jpg)
 
 
 ## Description

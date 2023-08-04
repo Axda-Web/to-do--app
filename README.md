@@ -1,4 +1,4 @@
-# ToDo App
+# ToDo List
 
 [![React.js](https://img.shields.io/badge/React.js-18.0.0-61DAFB?logo=react&logoColor=white&style=flat-square)](https://reactjs.org/)
 [![Redux](https://img.shields.io/badge/Redux-4.2.0-764ABC?logo=redux&logoColor=white&style=flat-square)](https://redux.js.org/)
@@ -9,7 +9,7 @@
 
 ## Description
 
-ToDo App is a project aimed at building a 'reminder' application. It offers the following functionalities: add, complete, delete, archive and restore tasks. The State was first managed via React and then migrated to Redux.  
+ToDo List is a project aimed at building a 'reminder' application. It offers the following functionalities: add, complete, delete, archive and restore tasks. The State was first managed via React and then migrated to Redux.  
 This project explores various concepts and features including:
 
 - React State
@@ -28,18 +28,18 @@ and more.
 
 ## Getting Started
 
-To get started with the SB Assessment project, follow the steps below:
+To get started with the Todo List project, follow the steps below:
 
 1. Clone the repository:
 
    ```shell
-   git clone git@github.com:Axda-Web/socialB.git
+   git clone git@github.com:Axda-Web/toDoApp.git
    ```
 
 2. Change into the project directory:
 
    ```shell
-   cd socialB
+   cd toDoApp
    ```
 
 3. Install the project dependencies:
